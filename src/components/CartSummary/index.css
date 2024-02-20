@@ -1,0 +1,25 @@
+/* Write your CSS here */
+.summary-container {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+.order {
+  font-size: 20px;
+  color: lightslategrey;
+}
+.total-price {
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+}
+
+.no-of-items {
+  font-size: 10px;
+  color: lightgray;
+}
+.checkout-button {
+  background-color: blue;
+  color: #ffffff;
+  border-radius: 5px;
+}
