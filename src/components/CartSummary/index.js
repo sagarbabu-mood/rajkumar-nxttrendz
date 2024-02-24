@@ -13,7 +13,8 @@ const CartSummary = () => (
       return (
         <div className="summary-Container">
           <p className="order">
-            order Total: <span className="total-price">{totalSum}</span>
+            Order Total:{' '}
+            <span className="total-price">{`Rs ${totalSum}/-`}</span>
           </p>
           <p className="no-of-items">{`${cartListLength} Items in cart`}</p>
           <button className="checkout-button" type="button">

@@ -8,15 +8,24 @@ import './index.css'
 const CartItem = props => (
   <CartContext.Consumer>
     {value => {
-      const {removeCartItem} = value
+      const {
+        removeCartItem,
+        incrementCartItemQuantity,
+        decrementCartItemQuantity,
+      } = value
       const {cartItemDetails} = props
       const {id, title, brand, quantity, price, imageUrl} = cartItemDetails
+
       const onRemoveCartItem = () => {
         removeCartItem(id)
       }
       // TODO: Update the functionality to increment and decrement quantity of the cart item
-      const incrementCartItem = () => {}
-      const decrementCartItem = () => {}
+      const incrementCartItem = () => {
+        incrementCartItemQuantity(id)
+      }
+      const decrementCartItem = () => {
+        decrementCartItemQuantity(id)
+      }
       return (
         <li className="cart-item">
           <img className="cart-product-image" src={imageUrl} alt={title} />
@@ -30,6 +39,7 @@ const CartItem = props => (
                 type="button"
                 className="quantity-controller-button"
                 onClick={incrementCartItem}
+                aria-label="Save"
               >
                 <BsDashSquare color="#52606D" size={12} />
               </button>
@@ -38,28 +48,23 @@ const CartItem = props => (
                 type="button"
                 className="quantity-controller-button"
                 onClick={decrementCartItem}
+                aria-label="Save"
               >
                 <BsPlusSquare color="#52606D" size={12} />
               </button>
             </div>
             <div className="total-price-remove-container">
               <p className="cart-total-price">Rs {price * quantity}/-</p>
-              <button
-                className="remove-button"
-                type="button"
-                onClick={onRemoveCartItem}
-              >
-                Remove
-              </button>
             </div>
+            <button
+              className="delete-button"
+              type="button"
+              onClick={onRemoveCartItem}
+              aria-label="Save"
+            >
+              <AiFillCloseCircle color="#616E7C" size={20} />
+            </button>
           </div>
-          <button
-            className="delete-button"
-            type="button"
-            onClick={onRemoveCartItem}
-          >
-            <AiFillCloseCircle color="#616E7C" size={20} />
-          </button>
         </li>
       )
     }}

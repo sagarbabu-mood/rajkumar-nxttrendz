@@ -126,6 +126,8 @@ class ProductItemDetails extends Component {
           totalReviews,
         } = productData
         const {addCartItem} = value
+
+        // eslint-disable-next-line
         const onClickAddToCart = () => {
           addCartItem({...productData, quantity})
         }
@@ -164,6 +166,7 @@ class ProductItemDetails extends Component {
                     className="quantity-controller-button"
                     onClick={this.onDecrementQuantity}
                     data-testify="minus"
+                    aria-label="Save"
                   >
                     <BsDashSquare className="quantity-controller-icon" />
                   </button>
@@ -173,6 +176,7 @@ class ProductItemDetails extends Component {
                     className="quantity-controller-button"
                     onClick={this.onIncrementQuantity}
                     data-testify="plus"
+                    aria-label="Save"
                   >
                     <BsPlusSquare className="quantity-controller-icon" />
                   </button>

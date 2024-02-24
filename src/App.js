@@ -20,9 +20,17 @@ class App extends Component {
   //   TODO: Add your code for remove all cart items, increment cart item quantity, decrement cart item quantity, remove cart item
 
   addCartItem = product => {
-    this.setState(prevState => ({cartList: [...prevState.cartList, product]}))
-    //   TODO: Update the code here to implement addCartItem
+    this.setState(prevState => ({
+      cartList: prevState.cartList.map(eachItem => {
+        if (product.title === eachItem.title) {
+          return {...eachItem, quantity: prevState.quantity + 1}
+        }
+        return {...prevState.cartList, product}
+      }),
+    }))
   }
+
+  //   TODO: Update the code here to implement addCartItem
 
   removeCartItem = id => {
     const {cartList} = this.state
@@ -31,8 +39,31 @@ class App extends Component {
   }
 
   removeAllCartItems = () => {
-    const {cartList} = this.state
     this.setState({cartList: []})
+  }
+
+  incrementCartItemQuantity = id => {
+    // const {cartList} = this.state
+    this.setState(prevState => ({
+      cartList: prevState.cartList.map(eachItem => {
+        if (id === eachItem.id) {
+          return {...eachItem, quantity: prevState.quantity + 1}
+        }
+        return eachItem
+      }),
+    }))
+  }
+
+  decrementCartItemQuantity = id => {
+    //  const {cartList} = this.state
+    this.setState(prevState => ({
+      cartList: prevState.cartList.map(eachItem => {
+        if (id === eachItem.id) {
+          return {...eachItem, quantity: prevState.quantity - 1}
+        }
+        return eachItem
+      }),
+    }))
   }
 
   render() {
@@ -45,6 +76,8 @@ class App extends Component {
           addCartItem: this.addCartItem,
           removeCartItem: this.removeCartItem,
           removeAllCartItems: this.removeAllCartItems,
+          incrementCartItemQuantity: this.incrementCartItemQuantity,
+          decrementCartItemQuantity: this.decrementCartItemQuantity,
         }}
       >
         <Switch>

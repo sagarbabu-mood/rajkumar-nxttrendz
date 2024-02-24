@@ -4,6 +4,7 @@
   background-color: #ffffff;
   padding: 16px;
   margin-bottom: 16px;
+
   box-shadow: 0px 4px 16px 0px #eaebed;
 }
 
@@ -101,7 +102,10 @@
 
 .total-price-remove-container {
   display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
   align-items: center;
+  padding-left: 20px;
 }
 
 .cart-total-price {

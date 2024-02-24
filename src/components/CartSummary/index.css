@@ -1,25 +1,37 @@
 /* Write your CSS here */
-.summary-container {
+.summary-Container {
   display: flex;
+  align-self: flex-start;
   flex-direction: column;
+  justify-content: center;
+
   padding: 5px;
+  margin-bottom: 20px;
 }
 .order {
   font-size: 20px;
+  font-weight: bold;
   color: lightslategrey;
+
+  margin-bottom: 0px;
 }
 .total-price {
   font-size: 20px;
-  font-weight: bold;
+
   color: black;
 }
 
 .no-of-items {
   font-size: 10px;
-  color: lightgray;
+  color: lightslategrey;
+  font-weight: bold;
+
+  margin-top: 0px;
 }
 .checkout-button {
-  background-color: blue;
+  background-color: rgb(22, 115, 236);
   color: #ffffff;
-  border-radius: 5px;
+  border: 0px;
+  border-radius: 2px;
+  padding: 7px;
 }
