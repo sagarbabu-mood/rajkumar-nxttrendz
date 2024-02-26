@@ -37,7 +37,7 @@ class App extends Component {
       }))
     } else {
       const updatedCartList = [...cartList, product]
-      this.setState(prevState => ({cartList: updatedCartList}))
+      this.setState({cartList: updatedCartList})
     }
   }
 
