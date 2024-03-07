@@ -1,6 +1,5 @@
 import {Component} from 'react'
 import {Route, Switch, Redirect} from 'react-router-dom'
-
 import LoginForm from './components/LoginForm'
 import Home from './components/Home'
 import Products from './components/Products'
@@ -19,17 +18,23 @@ class App extends Component {
 
   //   TODO: Add your code for remove all cart items, increment cart item quantity, decrement cart item quantity, remove cart item
 
+  //   TODO: Update the code here to implement addCartItem
+
+  removeAllCartItems = () => {
+    this.setState({cartList: []})
+  }
+
   addCartItem = product => {
     const {cartList} = this.state
     const productObject = cartList.find(
       eachCartItem => eachCartItem.id === product.id,
     )
 
-    if (productObject) {
+    if (productObject !== undefined) {
       this.setState(prevState => ({
         cartList: prevState.cartList.map(eachCartItem => {
-          if (productObject.id === eachCartItem.id) {
-            const updateQuantity = eachCartItem.quantity + product.quantity
+          if (eachCartItem.id === productObject.id) {
+            const updateQuantity = eachCartItem.quantity + 1
             return {...eachCartItem, quantity: updateQuantity}
           }
           return eachCartItem
@@ -41,16 +46,10 @@ class App extends Component {
     }
   }
 
-  //   TODO: Update the code here to implement addCartItem
-
   removeCartItem = id => {
     const {cartList} = this.state
     const afterRemovedCartList = cartList.filter(each => each.id !== id)
     this.setState({cartList: afterRemovedCartList})
-  }
-
-  removeAllCartItems = () => {
-    this.setState({cartList: []})
   }
 
   incrementCartItemQuantity = id => {
