@@ -7,9 +7,12 @@ const CartSummary = () => (
     {value => {
       const {cartList} = value
       const cartListLength = cartList.length
-      const totalPriceList = cartList.map(each => each.quantity * each.price)
-      const totalSum = totalPriceList.reduce((a, b) => a + b)
+      const totalPriceList = cartList.map(each =>
+        console.log(each.price * each.quantity),
+      )
 
+      const totalSum = totalPriceList.reduce((a, b) => a + b)
+      console.log(totalSum)
       return (
         <div className="summary-Container">
           <p className="order">

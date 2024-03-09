@@ -34,7 +34,7 @@ class App extends Component {
       this.setState(prevState => ({
         cartList: prevState.cartList.map(eachCartItem => {
           if (eachCartItem.id === productObject.id) {
-            const updateQuantity = eachCartItem.quantity + 1
+            const updateQuantity = eachCartItem.quantity + product.quantity
             return {...eachCartItem, quantity: updateQuantity}
           }
           return eachCartItem
@@ -56,7 +56,7 @@ class App extends Component {
     // const {cartList} = this.state
     this.setState(prevState => ({
       cartList: prevState.cartList.map(eachItem => {
-        if (id === eachItem.id) {
+        if (eachItem.id === id) {
           return {...eachItem, quantity: prevState.quantity + 1}
         }
         return eachItem
