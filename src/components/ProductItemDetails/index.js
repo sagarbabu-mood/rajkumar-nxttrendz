@@ -164,7 +164,7 @@ class ProductItemDetails extends Component {
                     type="button"
                     className="quantity-controller-button"
                     onClick={this.onDecrementQuantity}
-                    data-testify="minus"
+                    data-testid="minus"
                     aria-label="Save"
                   >
                     <BsDashSquare className="quantity-controller-icon" />
@@ -174,7 +174,7 @@ class ProductItemDetails extends Component {
                     type="button"
                     className="quantity-controller-button"
                     onClick={this.onIncrementQuantity}
-                    data-testify="plus"
+                    data-testid="plus"
                     aria-label="Save"
                   >
                     <BsPlusSquare className="quantity-controller-icon" />

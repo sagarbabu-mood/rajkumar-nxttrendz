@@ -57,7 +57,7 @@ class App extends Component {
     this.setState(prevState => ({
       cartList: prevState.cartList.map(eachItem => {
         if (eachItem.id === id) {
-          return {...eachItem, quantity: prevState.quantity + 1}
+          return {...eachItem, quantity: eachItem.quantity + 1}
         }
         return eachItem
       }),
@@ -69,7 +69,9 @@ class App extends Component {
     this.setState(prevState => ({
       cartList: prevState.cartList.map(eachItem => {
         if (id === eachItem.id) {
-          return {...eachItem, quantity: prevState.quantity - 1}
+          if (eachItem.quantity > 1) {
+            return {...eachItem, quantity: eachItem.quantity - 1}
+          }
         }
         return eachItem
       }),
