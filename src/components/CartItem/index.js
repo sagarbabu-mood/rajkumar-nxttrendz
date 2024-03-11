@@ -24,11 +24,14 @@ const CartItem = props => (
         incrementCartItemQuantity(id)
       }
       const decrementCartItem = () => {
+        decrementCartItemQuantity(id)
+        /*
         if (quantity > 1) {
           decrementCartItemQuantity(id)
         } else {
           removeCartItem(id)
         }
+        */
       }
       return (
         <li className="cart-item">

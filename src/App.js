@@ -65,8 +65,19 @@ class App extends Component {
   }
 
   decrementCartItemQuantity = id => {
-    //  const {cartList} = this.state
+    const {cartList} = this.state
 
+    const newList = cartList.map(eachItem => {
+      if (eachItem.id === id) {
+        if (eachItem.quantity > 1) {
+          return {...eachItem, quantity: eachItem.quantity - 1}
+        }
+        return this.removeCartItem(id)
+      }
+      return eachItem
+    })
+    this.setState({cartList: newList})
+    /*
     this.setState(prevState => ({
       cartList: prevState.cartList.map(eachItem => {
         if (id === eachItem.id) {
@@ -77,6 +88,7 @@ class App extends Component {
         return eachItem
       }),
     }))
+    */
   }
 
   render() {
