@@ -67,6 +67,21 @@ class App extends Component {
   decrementCartItemQuantity = id => {
     const {cartList} = this.state
 
+    const productObject = cartList.find(eachCartItem => eachCartItem.id === id)
+
+    if (productObject.quantity > 1) {
+      const newList = cartList.map(eachItem => {
+        if (eachItem.id === id) {
+          return {...eachItem, quantity: eachItem.quantity - 1}
+        }
+        return eachItem
+      })
+      this.setState({cartList: newList})
+    } else {
+      this.removeCartItem(id)
+    }
+
+    /*
     const newList = cartList.map(eachItem => {
       if (eachItem.id === id) {
         if (eachItem.quantity > 1) {
